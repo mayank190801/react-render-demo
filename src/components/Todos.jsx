@@ -1,5 +1,7 @@
+import React from "react"
+
 export const Todos = ({ allTodos }) => {
-    return <div>
+    return <>
         {allTodos.map((todo) => {
             return (<div key={todo.id} style={{ border: "1px solid black", padding: 10, margin: 10, display: "flex", justifyContent: "space-between" }}>
                 <div>
@@ -12,5 +14,5 @@ export const Todos = ({ allTodos }) => {
                 </div>
             </div>)
         })}
-    </div>
+    </>
 }

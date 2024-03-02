@@ -1,15 +1,11 @@
 import axios from "axios";
 import { useState } from "react"
+import React from "react";
 
-export const CreateTodo = () => {
+export const CreateTodo = ({ allTodos, setAllTodos }) => {
 
-    const [inputId, setInputId] = useState("");
     const [inputTitle, setInputTitle] = useState("");
     const [inputDescription, setInputDescription] = useState("");
-
-    const updateInputId = (event) => {
-        setInputId(event.target.value);
-    }
 
     const updateInputTitile = (event) => {
         setInputTitle(event.target.value);
@@ -28,13 +24,16 @@ export const CreateTodo = () => {
     const submitTodoToDatabase = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post("https://spring-render-api.onrender.com/todo", {
-                id: inputId,
+            const data = {
                 heading: inputTitle,
                 description: inputDescription,
                 status: false
-            })
-            console.log(response);
+            }
+
+            const response = await axios.post("http://localhost:8080/todo", data)
+            console.log(response)
+            const newAllTodos = [...allTodos, response.data];
+            setAllTodos(newAllTodos);
             updateToInitialValues();
         } catch (error) {
             console.log(error);
@@ -42,7 +41,6 @@ export const CreateTodo = () => {
     }
 
     return <div>
-        <input style={{ padding: 10, margin: 10 }} type="text" placeholder="id" value={inputId} onChange={updateInputId} /><br />
         <input style={{ padding: 10, margin: 10 }} type="text" placeholder="title" value={inputTitle} onChange={updateInputTitile} /><br />
         <input style={{ padding: 10, margin: 10 }} type="text" placeholder="description" value={inputDescription} onChange={updateInputDescription} /><br />
         <button style={{ padding: 10, margin: 10 }} onClick={submitTodoToDatabase} >Add Todo</button>
