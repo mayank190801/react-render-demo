@@ -16,7 +16,6 @@ export const CreateTodo = ({ allTodos, setAllTodos }) => {
     }
 
     const updateToInitialValues = () => {
-        setInputId("");
         setInputTitle("");
         setInputDescription("");
     }
@@ -34,6 +33,7 @@ export const CreateTodo = ({ allTodos, setAllTodos }) => {
             console.log(response)
             const newAllTodos = [...allTodos, response.data];
             setAllTodos(newAllTodos);
+
             updateToInitialValues();
         } catch (error) {
             console.log(error);

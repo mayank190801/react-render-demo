@@ -31,14 +31,14 @@ function App() {
             <div>
                 <p>-- Todo App --</p>
                 <CreateTodo allTodos={allTodos} setAllTodos={setAllTodos} />
-                <Todos allTodos={allTodos} />
+                <Todos allTodos={allTodos} setAllTodos={setAllTodos} />
 
                 <button onClick={updateHeader}>click and update the title</button>
                 <Header title={title} />
-                <Header title={"Hey Rashi"} />
-                <Header title={"Hey Rashi"} />
-                <Header title={"Hey Rashi"} />
-                <Header title={"Hey Rashi"} />
+                <Header title={"Hey testing"} />
+                <Header title={"Hey testing"} />
+                <Header title={"Hey testing"} />
+                <Header title={"Hey testing"} />
             </div>
         </>
     )
