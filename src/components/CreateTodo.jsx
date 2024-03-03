@@ -29,12 +29,13 @@ export const CreateTodo = ({ allTodos, setAllTodos }) => {
                 status: false
             }
 
-            const response = await axios.post("http://localhost:8080/todo", data)
+            const response = await axios.post(import.meta.env.VITE_BACKEND_URL + "todo", data)
             console.log(response)
             const newAllTodos = [...allTodos, response.data];
             setAllTodos(newAllTodos);
 
             updateToInitialValues();
+
         } catch (error) {
             console.log(error);
         }

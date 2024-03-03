@@ -1,0 +1,18 @@
+
+-> few things till now
+-> UseState
+-> UseEffect or UseAsyncEffect
+useEffect(() => {
+    return () => {
+
+    }
+}, [])
+Mount, Unmount, onstate change 
+-> React.memo
+-> Wrapper - ({children}) (pretty cool)
+-> Keys
+
+
+--> In free tier, keep calling the API again and again after sometime, and you are set!! - how amazing is that man!! :cry
+--> Let's try this only now, good fucking idea 
+
